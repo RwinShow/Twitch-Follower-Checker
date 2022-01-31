@@ -1,10 +1,10 @@
 
 # Twitch-Follower-Checker
 
-This is a very simple program that uses **[Python](https://www.python.org/)** and **[pyTwitchAPI](https://github.com/Teekeks/pyTwitchAPI)** to retrieve the list of users in a streamer's chat and then checks each one of these users to see if they follow the broadcaster or not.
+This is a simple program that uses **[Python](https://www.python.org/)** and **[pyTwitchAPI](https://github.com/Teekeks/pyTwitchAPI)** to retrieve the list of users in a streamer's chat and then checks each one of these users to see if they follow the broadcaster or not.
 
 ## Important note
-Using this program requires basic knowledge of Python. This code was written in a short time and there is a lot of room for improvement. if you find any bugs, don't hesitate to let me know, I currently don't have any plans on further developing this bot but I would fix the bugs.
+Using this program requires basic knowledge of Python. This code was written quickly, and there is a lot of room for improvement. If you find any bugs, don't hesitate to let me know, I currently don't have any plans on further developing this bot, but I would fix the bugs.
 |                |Question                          |Answer                         |
 |----------------|-------------------------------|-----------------------------|
 |1|Does this bot find fake views?|No, This bot only checks the streamer's user in chat and finds out which one of them follows that broadcaster. This information may be used along with other statistics to show if someone's views are artificially adjusted.|
