@@ -1,9 +1,10 @@
+#import library
 from twitchAPI.twitch import Twitch
 from twitchAPI.oauth import UserAuthenticator
 from twitchAPI.types import AuthScope
 import json
 import requests
-
+#Code
 def authenticate():
     target_scope = [AuthScope.BITS_READ]
     auth = UserAuthenticator(twitch, target_scope, force_verify=False)
