@@ -20,12 +20,8 @@ In order to run this code you need to:
 > Go to [Twitch Dev Console](https://dev.twitch.tv/console) and register your application. Use ```http://localhost:17563``` as the redirect URL.
 
 ## Basic Usage
-After setting up everything from the previous section, all you need to do is to replace the APP_ID and APP_SECRET in line 85:
+After setting up everything from the previous section, all you need to do is to replace the APP_ID and APP_SECRET in line 8:
 
 ```twitch = Twitch(APP_ID_HERE,APP_SECRET_HERE)```
 
-and replace the streamer's name with the person you want to check in line 88:
-
-```streamer_name = "shroud"```
-
-You can now run the python file and wait for it to generate the related text files.
+You can now run the python file, Then enter the name of the streamer you want to check and wait for it to generate the related text files.
