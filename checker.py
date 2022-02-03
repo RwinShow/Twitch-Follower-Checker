@@ -85,7 +85,7 @@ def read_login_id(streamer_name):
 twitch = Twitch('APP_ID_HERE','APP_SECRET_HERE')
 authenticate()
 
-streamer_name = "shroud"
+streamer_name = input("The Streamer Name: ")
 streamer_id = int(twitch.get_users(logins=[streamer_name])['data'][0]['id'])
 
 login_list=[]
