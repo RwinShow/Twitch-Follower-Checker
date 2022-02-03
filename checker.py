@@ -1,15 +1,12 @@
 from twitchAPI.twitch import Twitch
-from twitchAPI.oauth import UserAuthenticator
-from twitchAPI.types import AuthScope
 from json import loads
 import requests
+from auth import authenticate
 
 
-def authenticate():
-    target_scope = [AuthScope.BITS_READ]
-    auth = UserAuthenticator(twitch, target_scope, force_verify=False)
-    token, refresh_token = auth.authenticate()
-    twitch.set_user_authentication(token, target_scope, refresh_token)
+#  configure the following APP_ID and APP_SECRET
+twitch = Twitch('APP_ID_HERE', 'APP_SECRET_HERE')
+authenticate(twitch)
 
 
 def write_user_in_chat(streamer_name):
@@ -110,18 +107,18 @@ def read_login_id(streamer_name):
     return id
 
 
-#  configure the following APP_ID and APP_SECRET
-twitch = Twitch('APP_ID_HERE', 'APP_SECRET_HERE')
-authenticate()
+def run():
+    streamer_name = input("The Streamer Name: ")
+    streamer_id = int(twitch.get_users(logins=[streamer_name])['data'][0]['id'])
 
-streamer_name = input("The Streamer Name: ")
-streamer_id = int(twitch.get_users(logins=[streamer_name])['data'][0]['id'])
+    users_in_chat = write_user_in_chat(streamer_name)
+    print(users_in_chat)
+    login_list = read_login_list(streamer_name)
+    login_id_list = convert_to_id(login_list)
+    write_login_and_id(login_id_list, streamer_name)
+    id_list = read_login_id(streamer_name)
+    check_follows(id_list, streamer_id, streamer_name)
 
 
-#  run the app
-write_user_in_chat(streamer_name)
-login_list = read_login_list(streamer_name)
-login_id_list = convert_to_id(login_list)
-write_login_and_id(login_id_list, streamer_name)
-id_list = read_login_id(streamer_name)
-check_follows(id_list, streamer_id, streamer_name)
+if __name__ == "__main__":
+    run()
