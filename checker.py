@@ -88,9 +88,6 @@ authenticate()
 streamer_name = input("The Streamer Name: ")
 streamer_id = int(twitch.get_users(logins=[streamer_name])['data'][0]['id'])
 
-login_list=[]
-id_list=[]
-
 write_user_in_chat(streamer_name)
 login_list=read_login_list(streamer_name)
 login_id_list=convert_to_id(login_list)
