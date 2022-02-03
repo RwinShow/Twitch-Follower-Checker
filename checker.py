@@ -21,10 +21,10 @@ def write_user_in_chat(streamer_name):
     """
     r = requests.get("https://tmi.twitch.tv/group/user/{}/chatters".format(streamer_name))
     parsed = loads(r.content)
-    print(parsed['chatters']['viewers'])
     f = open("{}.txt".format(streamer_name), "w")
     f.write("{}".format(parsed['chatters']['viewers']))
     f.close()
+    return parsed['chatters']['viewers']
 
 
 def read_login_list(streamer_name):
