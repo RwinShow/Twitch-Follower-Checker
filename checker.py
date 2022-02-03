@@ -1,7 +1,7 @@
 from twitchAPI.twitch import Twitch
 from twitchAPI.oauth import UserAuthenticator
 from twitchAPI.types import AuthScope
-import json
+from json import loads
 import requests
 
 def authenticate():
@@ -12,7 +12,7 @@ def authenticate():
 
 def write_user_in_chat(streamer_name):
     r = requests.get("https://tmi.twitch.tv/group/user/{}/chatters".format(streamer_name))
-    parsed = json.loads(r.content)
+    parsed = loads(r.content)
     print(parsed['chatters']['viewers'])
     f = open("{}.txt".format(streamer_name), "w")
     f.write("{}".format(parsed['chatters']['viewers']))
